@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://www.examples.com/wsdl/showPurchase.wsdl"
+           attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.examples.com/wsdl/showPurchase.wsdl">
+
+    <xs:complexType name="Book">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="author" type="xs:string"/>
+            <xs:element name="isbn" type="xs:int"/>
+            <xs:element name="price" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="User">
+        <xs:sequence>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="phone" type="xs:int"/>
+            <xs:element name="username" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="bookList">
+        <xs:sequence>
+            <xs:element name="book" type="Book" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getPurchaseRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="email" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getPurchaseResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="user" type="User"/>
+                <xs:element name="list" type="bookList"/>
+                <xs:element name="book" type="Book"/>
+                <xs:element name="responseCode" type="xs:int"/>
+                <xs:element name="responseDescription" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

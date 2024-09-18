@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<definitions name="ShowPurchaseService"
+             targetNamespace="http://www.examples.com/wsdl/showPurchase.wsdl"
+             xmlns:tns="http://www.examples.com/wsdl/showPurchase.wsdl"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.examples.com/wsdl/showPurchase.wsdl"
+                        schemaLocation="ShowPurchaseService.xsd"/>
+        </xsd:schema>
+    </types>
+
+    <message name="getPurchaseRequestMessage">
+        <part name="parameters" element="tns:getPurchaseRequest"/>
+    </message>
+
+    <message name="getPurchaseResponseMessage">
+        <part name="parameters" element="tns:getPurchaseResponse"/>
+    </message>
+
+    <portType name="showPurchasePortType">
+        <operation name="showPurchase">
+            <input message="tns:getPurchaseRequestMessage"/>
+            <output message="tns:getPurchaseResponseMessage"/>
+        </operation>
+    </portType>
+
+    <binding name="showPurchaseBinding" type="tns:showPurchasePortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="showPurchase">
+            <soap:operation soapAction="http://www.examples.com/wsdl/showPurchase"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="UserBookService">
+        <documentation>WSDL file for showPurchase</documentation>
+        <port name="showPurchasePort" binding="tns:showPurchaseBinding">
+            <soap:address location="http://www.example.com/showPurchase/"/>
+        </port>
+    </service>
+</definitions>

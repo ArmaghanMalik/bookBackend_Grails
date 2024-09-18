@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<definitions name="showBookService"
+             targetNamespace="http://www.examples.com/new/showBookService"
+             xmlns:tns="http://www.examples.com/new/showBookService"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.examples.com/new/showBookService"
+                                        schemaLocation="showBookService.xsd"/>
+        </xsd:schema>
+    </types>
+
+    <message name="getBookRequestMessage">
+        <part name="parameters" element="tns:getBookRequest"/>
+    </message>
+
+    <message name="getBookResponseMessage">
+        <part name="parameters" element="tns:getBookResponse"/>
+    </message>
+
+    <message name="addBookRequestMessage">
+        <part name="parameters" element="tns:addBookRequest"/>
+    </message>
+
+    <message name="addBookResponseMessage">
+        <part name="parameters" element="tns:addBookResponse"/>
+    </message>
+
+    <message name="updateBookRequestMessage">
+        <part name="parameters" element="tns:updateBookRequest"/>
+    </message>
+
+    <message name="updateBookResponseMessage">
+        <part name="parameters" element="tns:updateBookResponse"/>
+    </message>
+
+    <message name="deleteBookRequestMessage">
+        <part name="parameters" element="tns:deleteBookRequest"/>
+    </message>
+
+    <message name="deleteBookResponseMessage">
+        <part name="parameters" element="tns:deleteBookResponse"/>
+    </message>
+
+    <message name="getAllBooksRequestMessage">
+        <part name="parameters" element="tns:getAllBooksRequest"/>
+    </message>
+
+    <message name="getAllBooksResponseMessage">
+        <part name="parameters" element="tns:getAllBooksResponse"/>
+    </message>
+
+    <portType name="BookServicePortType">
+    <operation name="getBook">
+        <input message="tns:getBookRequestMessage"/>
+        <output message="tns:getBookResponseMessage"/>
+    </operation>
+    <operation name="addBook">
+        <input message="tns:addBookRequestMessage"/>
+        <output message="tns:addBookResponseMessage"/>
+    </operation>
+    <operation name="updateBook">
+        <input message="tns:updateBookRequestMessage"/>
+        <output message="tns:updateBookResponseMessage"/>
+    </operation>
+    <operation name="deleteBook">
+        <input message="tns:deleteBookRequestMessage"/>
+        <output message="tns:deleteBookResponseMessage"/>
+    </operation>
+    <operation name="getAllBooks">
+        <input message="tns:getAllBooksRequestMessage"/>
+        <output message="tns:getAllBooksResponseMessage"/>
+    </operation>
+    </portType>
+
+    <binding name="BookServiceBinding" type="tns:BookServicePortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getBook">
+            <soap:operation soapAction="http://www.examples.com/new/showBookService"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="addBook">
+            <soap:operation soapAction="http://www.examples.com/new/showBookService"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="updateBook">
+            <soap:operation soapAction="http://www.examples.com/new/showBookService"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    <operation name="deleteBook">
+        <soap:operation soapAction="http://www.examples.com/new/showBookService"/>
+        <input>
+            <soap:body use="literal"/>
+        </input>
+        <output>
+            <soap:body use="literal"/>
+        </output>
+    </operation>
+        <operation name="getAllBooks">
+            <soap:operation soapAction="http://www.examples.com/new/showBookService"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="BookService">
+        <documentation>WSDL file for showPurchase</documentation>
+        <port name="BookServicePort" binding="tns:BookServiceBinding">
+            <soap:address location="http://www.example.com/new/showBookService/"/>
+        </port>
+    </service>
+</definitions>

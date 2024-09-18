@@ -1,0 +1,99 @@
+info:
+  app:
+    name: '@info.app.name@'
+    version: '@info.app.version@'
+    grailsVersion: '@info.app.grailsVersion@'
+dataSource:
+  url: jdbc:mysql://localhost:3306/ocb?useUnicode=true&characterEncoding=UTF-8
+  pooled: true
+  jmxExport: true
+  driverClassName: com.mysql.cj.jdbc.Driver
+  dbCreate: update
+  dialect: org.hibernate.dialect.MySQL8Dialect
+  username: root
+  password: ''
+
+environments:
+  development:
+    dataSource:
+      dbCreate: update
+      url: jdbc:mysql://localhost:3306/ocb?useUnicode=true&characterEncoding=UTF-8
+
+
+# rest of configuration
+hibernate:
+  cache:
+    queries: false
+    use_second_level_cache: false
+    use_query_cache: false
+grails:
+  controllers:
+    defaultScope: singleton
+    default-cache: false
+  views:
+    default:
+      codec: html
+    gsp:
+      encoding: UTF-8
+      htmlcodec: xml
+      codecs:
+        expression: html
+        scriptlet: html
+        taglib: none
+        staticparts: none
+  mime:
+    disable:
+      accept:
+        header:
+          userAgents:
+            - Gecko
+            - WebKit
+            - Presto
+            - Trident
+    types:
+      all: '*/*'
+      atom: application/atom+xml
+      css: text/css
+      csv: text/csv
+      form: application/x-www-form-urlencoded
+      html:
+        - text/html
+        - application/xhtml+xml
+      js: text/javascript
+      json:
+        - application/json
+        - text/json
+      multipartForm: multipart/form-data
+      pdf: application/pdf
+      rss: application/rss+xml
+      text: text/plain
+      hal:
+        - application/hal+json
+        - application/hal+xml
+      xml:
+        - text/xml
+        - application/xml
+  autowire: true
+
+  mail:
+    host: "smtp.gmail.com"
+    port: 465
+    username: "armaghanalimalik01@gmail.com"
+    password: "khxh liix vxir immg"
+    props:
+      mail.smtp.auth: "true"
+      mail.smtp.starttls.enable: "true"
+      mail.smtp.socketFactory.port: "465"
+      mail.smtp.socketFactory.class: "javax.net.ssl.SSLSocketFactory"
+      mail.smtp.socketFactory.fallback: "false"
+
+admin:
+  username: 'admin'
+  password: 'admin'
+
+
+
+
+#logging:
+#  level:
+#    root: DEBUG
